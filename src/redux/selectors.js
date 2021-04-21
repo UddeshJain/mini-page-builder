@@ -1,6 +1,6 @@
 import { createSelector } from 'reselect';
 
-export const getElementsInContainer = (store) => store.children;
+export const getElementsInContainer = (store) => store.elements;
 
 export const getElementById = (id) => (store) =>
   store.elements.find((element) => element.id === id);

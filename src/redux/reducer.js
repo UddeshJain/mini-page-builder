@@ -9,7 +9,6 @@ import {
 
 const initialState = {
   elements: [],
-  children: [],
   selected: {
     id: null,
     fromContainerId: null,
@@ -23,7 +22,6 @@ const rootReducer = (state = initialState, action) => {
       let newState = {
         ...state,
         elements: [...state.elements, element],
-        children: [...state.children, element.id],
       };
       localStorage.setItem('elements', JSON.stringify(newState));
       return newState;
@@ -113,7 +111,6 @@ const rootReducer = (state = initialState, action) => {
 
     case ADD_INITIAL_DATA: {
       const { data } = action.payload;
-      console.log(data);
       return {
         ...state,
         ...data,

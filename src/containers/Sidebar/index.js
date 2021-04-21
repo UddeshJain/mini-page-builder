@@ -1,7 +1,6 @@
 import React from 'react';
 import { Title } from '../../global/GlobalComponents';
 import { Wrapper, StyledElementButton, StyledIcon } from './style';
-import elementsList from '../../utils/elementsList';
 import GridIcon from '../../assets/grip-vertical.svg';
 
 const Sidebar = ({ onDragStart }) => {
@@ -9,18 +8,35 @@ const Sidebar = ({ onDragStart }) => {
     <Wrapper>
       <Title>BLOCKS</Title>
       <div>
-        {elementsList.map((element) => (
-          <StyledElementButton
-            key={element.type}
-            draggable
-            onDragStart={onDragStart({
-              type: element.type,
-            })}
-          >
-            <StyledIcon src={GridIcon} alt="grid-icon" />
-            {element.title}
-          </StyledElementButton>
-        ))}
+        <StyledElementButton
+          draggable
+          onDragStart={onDragStart({
+            type: 'p',
+          })}
+        >
+          <StyledIcon src={GridIcon} alt="grid-icon" />
+          Label
+        </StyledElementButton>
+
+        <StyledElementButton
+          draggable
+          onDragStart={onDragStart({
+            type: 'input',
+          })}
+        >
+          <StyledIcon src={GridIcon} alt="grid-icon" />
+          Input
+        </StyledElementButton>
+
+        <StyledElementButton
+          draggable
+          onDragStart={onDragStart({
+            type: 'button',
+          })}
+        >
+          <StyledIcon src={GridIcon} alt="grid-icon" />
+          Button
+        </StyledElementButton>
       </div>
     </Wrapper>
   );

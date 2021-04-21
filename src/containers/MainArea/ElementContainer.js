@@ -34,11 +34,10 @@ const Container = ({
       onDrop={onDropContainer}
       centered={children.length === 0}
     >
-      {children.map((childId, i) => (
+      {children.map((child, i) => (
         <Element
-          key={childId}
-          elementId={childId}
-          fromContainerId="container"
+          key={child.id}
+          elementId={child.id}
           onDragStart={onDragStart}
           onDragOver={onDragOver}
           onDrop={onDrop}

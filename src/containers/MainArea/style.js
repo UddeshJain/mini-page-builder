@@ -54,7 +54,7 @@ export const StyledInput = styled.input`
 `;
 
 export const StyledParagraph = styled.p`
-  width: min-content;
+  display: inline-block;
   font-size: ${(props) => props.fontSize || 14}px;
   font-weight: ${(props) => props.fontWeight || 400};
   border: ${(props) => (props.selected ? '1px solid #D95409' : null)};

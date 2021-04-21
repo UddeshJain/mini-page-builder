@@ -1,13 +1,21 @@
-import React, { useState, useCallback } from 'react';
+import React, { useState, useCallback, useEffect } from 'react';
 import { Form, FieldContainer } from './style';
 import { SubmitButton, Input } from '../../../global/GlobalComponents';
 
 const ParagraphForm = ({ selectedProperties, submit }) => {
-  const [text, setText] = useState(selectedProperties.text);
-  const [xPosition, setXPosition] = useState(selectedProperties.xPosition);
-  const [yPosition, setYPosition] = useState(selectedProperties.xPosition);
-  const [fontSize, setFontSize] = useState(selectedProperties.fontSize);
-  const [fontWeight, setFontWeight] = useState(selectedProperties.fontWeight);
+  const [text, setText] = useState('');
+  const [xPosition, setXPosition] = useState(0);
+  const [yPosition, setYPosition] = useState(0);
+  const [fontSize, setFontSize] = useState(12);
+  const [fontWeight, setFontWeight] = useState(400);
+
+  useEffect(() => {
+    setText(selectedProperties.text);
+    setXPosition(selectedProperties.xPosition);
+    setYPosition(selectedProperties.yPosition);
+    setFontSize(selectedProperties.fontSize);
+    setFontWeight(selectedProperties.fontWeight);
+  }, [selectedProperties]);
 
   const handleChange = useCallback((e, cb) => {
     cb(e.target.valueAsNumber || e.target.value);

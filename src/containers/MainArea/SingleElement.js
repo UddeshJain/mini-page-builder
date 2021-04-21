@@ -28,7 +28,7 @@ const Element = ({
         onKeyDown={(e) => handleDelete(e, element.id)}
         {...element.properties}
       >
-        {element.text || 'Button'}
+        {element.properties.text || 'Button'}
       </StyledButton>
     );
   }
@@ -64,7 +64,7 @@ const Element = ({
         selected={element.id === selectedElement}
         {...element.properties}
       >
-        {element.text || 'Label'}
+        {element.properties.text || 'Label'}
       </StyledParagraph>
     );
   }
