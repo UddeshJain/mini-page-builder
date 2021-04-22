@@ -27,10 +27,9 @@ export const StyledButton = styled.button`
   font-size: ${(props) => props.fontSize || 14}px;
   font-weight: ${(props) => props.fontWeight || 400};
   border: ${(props) => (props.selected ? '1px solid #D95409' : null)};
-  transform: translate(
-    ${(props) => props.xPosition}px,
-    ${(props) => props.yPosition}px
-  );
+  position: absolute;
+  left: ${(props) => props.xPosition}px;
+  top: ${(props) => props.yPosition}px;
   background: #0044c1;
   padding: 8px 16px;
   color: #fff;
@@ -43,10 +42,9 @@ export const StyledInput = styled.input`
   font-size: ${(props) => props.fontSize || 14}px;
   font-weight: ${(props) => props.fontWeight || 400};
   border: ${(props) => (props.selected ? '1px solid #D95409' : null)};
-  transform: translate(
-    ${(props) => props.xPosition}px,
-    ${(props) => props.yPosition}px
-  );
+  position: absolute;
+  left: ${(props) => props.xPosition}px;
+  top: ${(props) => props.yPosition}px;
   &:focus {
     border: 1px solid #d95409;
     outline: 1px solid #d95409;
@@ -58,9 +56,8 @@ export const StyledParagraph = styled.p`
   font-size: ${(props) => props.fontSize || 14}px;
   font-weight: ${(props) => props.fontWeight || 400};
   border: ${(props) => (props.selected ? '1px solid #D95409' : null)};
-  transform: translate(
-    ${(props) => props.xPosition}px,
-    ${(props) => props.yPosition}px
-  );
+  position: absolute;
+  left: ${(props) => props.xPosition}px;
+  top: ${(props) => props.yPosition}px;
   cursor: pointer;
 `;
