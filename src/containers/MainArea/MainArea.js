@@ -8,7 +8,6 @@ import Container from './ElementContainer';
 import EditElementModal from '../EditElementModal';
 import {
   addElement,
-  addElementAsChild,
   selectElement,
   setElementProperties,
   removeElement,
@@ -22,11 +21,10 @@ const MainAreaContainer = () => {
   const [elementId, setElementId] = useState('');
 
   const onDragStart = useCallback(
-    ({ type, elementId, fromContainerId }) => (e) => {
+    ({ type, elementId }) => (e) => {
       e.stopPropagation();
       e.dataTransfer.setData('type', type || '');
       e.dataTransfer.setData('elementId', elementId || '');
-      e.dataTransfer.setData('fromContainerId', fromContainerId || '');
     },
     []
   );
@@ -37,7 +35,7 @@ const MainAreaContainer = () => {
     setYPosition(e.pageY);
   }, []);
 
-  const onDropContainer = useCallback(
+  const onDrop = useCallback(
     (e) => {
       e.stopPropagation();
       const type = e.dataTransfer.getData('type');
@@ -56,18 +54,6 @@ const MainAreaContainer = () => {
       }
     },
     [dispatch, xPosition, yPosition]
-  );
-
-  const onDrop = useCallback(
-    (containerId) => (e) => {
-      const type = e.dataTransfer.getData('type');
-      const elementId = e.dataTransfer.getData('elementId');
-      if (!elementId) {
-        const element = createElement(type);
-        dispatch(addElementAsChild(element, containerId));
-      }
-    },
-    [dispatch]
   );
 
   const select = useCallback(
@@ -102,7 +88,6 @@ const MainAreaContainer = () => {
         <Container
           onDragStart={onDragStart}
           onDragOver={onDragOver}
-          onDropContainer={onDropContainer}
           onDrop={onDrop}
           select={select}
           selectedElement={elementId}

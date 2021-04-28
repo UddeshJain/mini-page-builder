@@ -8,7 +8,6 @@ import { addInitialData } from '../../redux/actions';
 const Container = ({
   onDragStart,
   onDragOver,
-  onDropContainer,
   onDrop,
   select,
   handleEnterPress,
@@ -31,7 +30,7 @@ const Container = ({
   return (
     <StyledContainer
       onDragOver={onDragOver}
-      onDrop={onDropContainer}
+      onDrop={onDrop}
       centered={children.length === 0}
     >
       {children.map((child, i) => (
@@ -39,8 +38,6 @@ const Container = ({
           key={child.id}
           elementId={child.id}
           onDragStart={onDragStart}
-          onDragOver={onDragOver}
-          onDrop={onDrop}
           select={select}
           tabIndex={i}
           selectedElement={selectedElement}

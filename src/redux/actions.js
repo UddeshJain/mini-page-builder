@@ -5,7 +5,6 @@ import {
   SET_ELEMENT_PROPERTIES,
   MOVE_CHILD,
   REMOVE_ELEMENT,
-  ADD_ELEMENT_AS_CHILD,
   ADD_INITIAL_DATA,
 } from './actionTypes';
 
@@ -13,14 +12,6 @@ export const addElement = (element) => ({
   type: ADD_ELEMENT,
   payload: {
     element,
-  },
-});
-
-export const addElementAsChild = (element, containerId) => ({
-  type: ADD_ELEMENT_AS_CHILD,
-  payload: {
-    element,
-    containerId,
   },
 });
 

@@ -11,7 +11,7 @@ This is a page builder app. Which allows user to build a page layout with `drag 
 1. Clone to repository
 2. Run `npm install` to install dependencies
 3. Run `npm start` to start the app on localhost
-4. Open browser and got to [localhost:3000](http://localhost:3000)
+4. Open browser and go to [localhost:3000](http://localhost:3000)
 
 ## How it works
 
